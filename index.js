@@ -46,7 +46,7 @@ async function notifyIfThresholdReached() {
   const { totalKilobytes, availableKilobytes, freePercentage } = getDiskUsage('/');
   const roundedPercentage = freePercentage.toFixed(2);
 
-  if (freePercentage >= thresholdLevel) {
+  if (freePercentage <= 100 - thresholdLevel) {
     const message = [
       `📦 Free disk space alert`,
       `Path: /`,
@@ -69,5 +69,4 @@ notifyIfThresholdReached()
   .catch((error) => {
     console.error('Failed to check disk space or send alert:', error);
     process.exitCode = 1;
-  })
-  .finally(() => bot.stop('shutdown'));
+  });
