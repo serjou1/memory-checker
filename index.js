@@ -53,7 +53,7 @@ async function notifyIfThresholdReached() {
       `Free: ${formatGigabytes(availableKilobytes)} GB`,
       `Total: ${formatGigabytes(totalKilobytes)} GB`,
       `Free percentage: ${roundedPercentage}%`,
-      `Threshold: ${thresholdLevel}%`
+      `Threshold: ${100 - thresholdLevel}%`
     ].join('\n');
 
     await bot.telegram.sendMessage(chatId, message);
