@@ -1,0 +1,22 @@
+{
+  "name": "memory-checker",
+  "version": "1.0.0",
+  "description": "Disk space alert script using telegraf to message a Telegram chat.",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "check-space": "node index.js"
+  },
+  "keywords": [
+    "telegram",
+    "telegraf",
+    "disk",
+    "monitoring"
+  ],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "telegraf": "^4.16.3"
+  }
+}
