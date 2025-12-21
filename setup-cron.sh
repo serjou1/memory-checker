@@ -12,7 +12,7 @@ CRON_CMD="*/5 * * * * cd $SCRIPT_DIR && /usr/bin/env PATH=\"$PATH\" node index.j
 # Preserve existing crontab entries that are not ours, then append/update ours.
 # Using grep to remove any previous entries with the marker ensures idempotency.
 {
-  crontab -l 2>/dev/null | grep -v "$CRON_MARKER"
+  crontab -l 2>/dev/null | grep -v "$CRON_MARKER" || true
   echo "$CRON_CMD"
 } | crontab -
 
